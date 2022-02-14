@@ -1,0 +1,5 @@
+fileignoreconfig:
+- filename: assets/script.js
+  checksum: 1036c30305f2ef407f1a6b413840103f579ef6249d9550581c420d7fc0e978cf
+version: ""
+

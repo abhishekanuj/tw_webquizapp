@@ -12,18 +12,20 @@
 
 <body>
     <header class="header">
-        <a class="viewHistory" >View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
+        <a class="viewHistory" id="anchor" onclick="highscores()">View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
         </a> 
-        <p id="your-name">name</p>
+        <p id="your-name"></p>
         <p id="score"></p>
-        <p id="time"> Time: 00 </p>
+        <p id="time"></p>
     </header>
 
     <main class="main-content">
 
         <div id="intro">
         <h1>quiz application</h1>
-       
+       <p>rules-</p>
+       <p>You will be given 10 sec to answer each question.</p>
+       <p></p>
         <input type="text" placeholder="enter a name" id="name" required>
         <button type="submit" onclick="startQuiz()">submit</button>
         
@@ -38,9 +40,26 @@
             <p id="4" class="options">options</p>
 
         </div>
+
+
+
+
+
         <div id="Highscores">
-            
+            <table style="width:100%" id="highscoreTable">
+                <tr>
+                  <td>NAme</td>
+                    <td>score</td>
+                </tr>
+               
+              </table>
+
+
+
+
         </div>
+
+        
     </main>
     <script src="assets/script.js"></script>
 </body>

@@ -10,20 +10,29 @@ const highscores_name=[];
 let countTime=0;
 
 
+let playerName="";
+let intro = document.getElementById("intro");
+
+let highscoreTable=document.getElementById("Highscores");
 
 
+
+//function to start the quiz
 function startQuiz(){
   const name=document.getElementById("name").value;
+  playerName=name;
   //console.log(typeof name);
-  if(name.length===0){
-    alert("name cant be empty");
+  if(validate(name)==false){
     return;
   }
   
   document.getElementById("your-name").innerHTML="player name:  "+name;
   console.log(document.getElementById("your-name").innerHTML);
-  document.getElementById("intro").style.display="none";
+
+  intro.style.display="none";
   mainContent.style.display="block";
+  highscoreTable.style.display="none";
+
   time.innerHTML="Time: "+timeINterval; 
   timestart();
   quest.innerHTML=questions[questionIndex].questionText;
@@ -36,7 +45,31 @@ for(let i=0;i<questions.length;i++){
 
 };
 
+//functi0on to validate name
+function validate(name){
+  var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+  
+  if(!regName.test(name)){
+      alert('Please enter your full name (first & last name).');
+      document.getElementById('name').focus();
+      return false;
+  }else{
+      //alert('Valid name given.');
+      return true;
+  }
+}
+
+
+
+
+
+
 let check=false;
+
+
+
+
+//to get which option was clicked
 Array.from(option).forEach(function(element) {
   element.addEventListener('click', (e)=>{
    check = checkAnswer(e.target.innerText);
@@ -45,6 +78,9 @@ Array.from(option).forEach(function(element) {
 });
 
 
+
+
+//function to chech the answer
 function checkAnswer(user_answer){
   if(questions[questionIndex].answer===user_answer ){
     //console.log("success");
@@ -56,11 +92,16 @@ function checkAnswer(user_answer){
 
 };
 
+
+
+
+
+//function to change the question
 function changeQuestion(){
   console.log(questionIndex);
   if(questionIndex===questions.length-1){
     
-    highscores();
+   // highscores();
    
   }
   else{
@@ -77,8 +118,12 @@ function changeQuestion(){
   }
 }
 
+
+
+//function to start the time
 function timestart(timeINterval=11){
   document.getElementById("score").innerHTML="your score "+points;
+
   countTime++;
   console.log(countTime);
   var x = setInterval(function(){
@@ -103,11 +148,75 @@ function timestart(timeINterval=11){
 
 };
 
+
+
+//function for score-table
+
 function highscores(){
-  console.log("ended");
+  let anchor=document.getElementById("anchor");
+  anchor.innerHTML="previous";
+  anchor.addEventListener('click',()=>{
+    intro.style.display="block";
+    anchor.href="index.html";
+    
+  });
+ 
+  //time.innerHTML.style.display="block";
+  highscoreTable.style.display="block"; 
+  intro.style.display="none";
   mainContent.style.display="none";
-  //document.getElementById("score").innerHTML="game over";
+  
+  highscoreTable.style.innerHTML="hello";
+
+  console.log("ended");
+ 
+  localStorage.setItem(playerName,points);
+  let sortedScore=allStorage();
+  //console.log(sortedScore);
+  sortedScore.forEach((element)=>{
+    document.getElementById("highscoreTable").innerHTML+=`<tr><td>${element.name} </td> <td>${element.score}</td> </tr>`
+  });
+
+  
+    //document.getElementById("score").innerHTML="game over";
 }
+
+
+
+
+//function to store names and score
+
+function allStorage() {
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+    console.log(keys);
+    while ( i-- ) {
+        values.push({name:keys[i] ,score :localStorage.getItem(keys[i])});
+    }
+
+    //console.log(values);
+  
+  
+    function compare( a, b ) {
+      if ( a.score > b.score ){
+        return -1;
+      }
+      if ( a.score < b.score ){
+        return 1;
+      }
+      return 0;
+    }
+    
+    values.sort( compare );
+    return values;
+}
+
+
+
+
+
 
 
 const questions = [
