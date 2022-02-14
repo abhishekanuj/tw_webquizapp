@@ -7,7 +7,7 @@ const option=document.getElementsByClassName("options");
 let timeINterval=10;
 let points=0;
 const highscores_name=[];
-
+let countTime=0;
 
 
 
@@ -42,7 +42,7 @@ Array.from(option).forEach(function(element) {
 
 
 function checkAnswer(user_answer){
-  if(questions[questionIndex].answer===user_answer){
+  if(questions[questionIndex].answer===user_answer ){
     //console.log("success");
     points+=10;
 
@@ -74,13 +74,15 @@ function changeQuestion(){
 }
 
 function timestart(timeINterval=11){
-
+  countTime++;
+  console.log(countTime);
   var x = setInterval(function(){
     timeINterval--;
     time.innerHTML = "Time: "+timeINterval;
-    if(questionIndex===questions.length-1){
+    if(countTime==6){
     
-      highscores();
+     //changeQuestion();
+     highscores();
      clearInterval(x);
     }
     else if(timeINterval<=0 || check===true){
@@ -98,6 +100,7 @@ function timestart(timeINterval=11){
 function highscores(){
   console.log("ended");
   mainContent.style.display="none";
+  document.getElementById("score").innerHTML="game over";
 }
 
 
