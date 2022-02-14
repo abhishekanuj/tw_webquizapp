@@ -60,7 +60,6 @@ function changeQuestion(){
    
   }
   else{
-   
   
   //console.log(questionIndex);
   questionIndex++;
@@ -74,19 +73,17 @@ function changeQuestion(){
   }
 }
 
-function timestart(){
+function timestart(timeINterval=11){
 
   var x = setInterval(function(){
     timeINterval--;
     time.innerHTML = "Time: "+timeINterval;
-   /*  if(questionIndex==questions.length-1)
-    {
+    if(questionIndex===questions.length-1){
+    
       highscores();
-      clearInterval(x);
-    } */
-
-
-   if(timeINterval<=0 || check===true){
+     clearInterval(x);
+    }
+    else if(timeINterval<=0 || check===true){
       console.log(check);
         check=false;
         clearInterval(x);
