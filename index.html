@@ -15,6 +15,7 @@
         <a class="viewHistory" >View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
         </a> 
         <p id="your-name">name</p>
+        <p id="score"></p>
         <p id="time"> Time: 00 </p>
     </header>
 
@@ -22,8 +23,10 @@
 
         <div id="intro">
         <h1>quiz application</h1>
-        <input type="text" placeholder="enter a name" id="name">
-        <button onclick="startQuiz()">submit</button>
+       
+        <input type="text" placeholder="enter a name" id="name" required>
+        <button type="submit" onclick="startQuiz()">submit</button>
+        
         </div>
 
 
@@ -36,7 +39,7 @@
 
         </div>
         <div id="Highscores">
-            <p id="score"></p>
+            
         </div>
     </main>
     <script src="assets/script.js"></script>

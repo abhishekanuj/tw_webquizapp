@@ -15,6 +15,10 @@ let countTime=0;
 function startQuiz(){
   const name=document.getElementById("name").value;
   //console.log(typeof name);
+  if(name.length===0){
+    alert("name cant be empty");
+    return;
+  }
   
   document.getElementById("your-name").innerHTML="player name:  "+name;
   console.log(document.getElementById("your-name").innerHTML);
@@ -74,9 +78,11 @@ function changeQuestion(){
 }
 
 function timestart(timeINterval=11){
+  document.getElementById("score").innerHTML="your score "+points;
   countTime++;
   console.log(countTime);
   var x = setInterval(function(){
+    
     timeINterval--;
     time.innerHTML = "Time: "+timeINterval;
     if(countTime==6){
@@ -100,7 +106,7 @@ function timestart(timeINterval=11){
 function highscores(){
   console.log("ended");
   mainContent.style.display="none";
-  document.getElementById("score").innerHTML="game over";
+  //document.getElementById("score").innerHTML="game over";
 }
 
 
