@@ -45,12 +45,17 @@ for(let i=0;i<questions.length;i++){
 
 };
 
-//functi0on to validate name
+
+//function to validate name
 function validate(name){
-  var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+  name=name.trim();
+  if(name==""){
+    alert("Please enter a valid name");
+  }
+  var regName = /^[a-zA-Z\s]+$/;
   
   if(!regName.test(name)){
-      alert('Please enter your full name (first & last name).');
+      alert('Please enter a valid name');
       document.getElementById('name').focus();
       return false;
   }else{
@@ -151,15 +156,16 @@ function timestart(timeINterval=11){
 
 
 //function for score-table
-
+let flag=false;
 function highscores(){
   let anchor=document.getElementById("anchor");
-  anchor.innerHTML="previous";
+/*   anchor.innerHTML="previous";
   anchor.addEventListener('click',()=>{
     intro.style.display="block";
-    anchor.href="index.html";
-    
-  });
+    //anchor.href="index.html";
+   highscoreTable.style.display="none"; 
+    //intro.style.display="block"; 
+  }); */
  
   //time.innerHTML.style.display="block";
   highscoreTable.style.display="block"; 
@@ -173,11 +179,12 @@ function highscores(){
   localStorage.setItem(playerName,points);
   let sortedScore=allStorage();
   //console.log(sortedScore);
+  if(flag==false){
   sortedScore.forEach((element)=>{
     document.getElementById("highscoreTable").innerHTML+=`<tr><td>${element.name} </td> <td>${element.score}</td> </tr>`
   });
-
-  
+  flag=true;
+}
     //document.getElementById("score").innerHTML="game over";
 }
 
@@ -214,7 +221,17 @@ function allStorage() {
 }
 
 
-
+function reset(){
+  //let anchor=document.getElementById("restart");
+    //  anchor.innerHTML="previous";
+    //anchor.addEventListener('click',()=>{
+      intro.style.display="block";
+      //anchor.href="index.html";
+     highscoreTable.style.display="none"; 
+      //intro.style.display="block"; 
+   // }); 
+   
+}
 
 
 

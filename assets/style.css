@@ -22,3 +22,16 @@ body > main{
 #Highscores{
     display: none;
 }
+.main-content{
+    display: block;
+    position: absolute;
+    width: 600px;
+    margin: 0 auto;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 10px 5px lightgray;
+    padding: 20px;
+}
