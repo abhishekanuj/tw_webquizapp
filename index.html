@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Codedamn - Quiz Project</title>
+</head>
+
+<body>
+    <header class="header">
+        <a class="viewHistory" >View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
+        </a> 
+        <p id="your-name">name</p>
+        <p id="time"> Time: 00 </p>
+    </header>
+
+    <main class="main-content">
+
+        <div id="intro">
+        <h1>quiz application</h1>
+        <input type="text" placeholder="enter a name" id="name">
+        <button onclick="startQuiz()">submit</button>
+        </div>
+
+
+        <div id="playground">
+            <p id="question">questions</p>
+            <p id="1" class="options">options</p>
+            <p id="2" class="options">options</p>
+            <p id="3" class="options">options</p>
+            <p id="4" class="options">options</p>
+
+        </div>
+
+    </main>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>

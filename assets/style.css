@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: seagreen;
+    margin: 0px;
+    padding: 10px;
+    color: #fff;
+}
+
+
+body > main{
+    border-radius: 10px;
+    color: white;
+    background: red;
+   
+}
+#playground{
+    display: none;
+}
