@@ -12,8 +12,7 @@
 
 <body>
     <header class="header">
-        <a class="viewHistory" id="anchor" href="highscoreTable.html">View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
-        </a> 
+        <a class="viewHistory" id="anchor" href="highscoreTable.html">View Highscores 👈🏻</a> 
         <p id="your-name"></p>
         <p id="score"></p>
         <p id="time"></p>
@@ -22,13 +21,17 @@
     <main class="main-content">
 
         <div id="intro">
-        <h1>coding quiz challenge</h1>
+        <h1 id="quiz-headings">coding quiz challenge 🎉</h1>
        <p>rules-</p>
-       <p>You will be given 10 sec to answer each question.</p>
+       <p>1. you will be given 10 sec to answer each question.</p>
+       <p>2. once you select your answer, it can't be undone.</p>
+       <p>3. you can't select any option once time goes off.</p>
+       <p>4. you can't exit from the quiz while you're playing.</p>
+       <p>5. you'll get points on the basis of correct answers.</p>
        <p></p>
             <div class="inputBox">
         <input type="text" placeholder="enter a name" id="name" required  style="margin-right: 1rem;">
-        <button type="submit" onclick="startQuiz()">submit</button>
+        <button type="submit" onclick="startQuiz()" id="submit-button">submit</button>
             </div>
         </div>
 
@@ -44,7 +47,7 @@
 
         <div id="game-end">
             <h1 id="your-score">your score    : </h1>
-            <a id="play-again" href="index.html">play again</a></br>
+            <a id="play-again" href="index.html" style="line-height: 4rem;">play again</a></br>
             <a id="highscore-table" href="highscoreTable.html">go to highscore-table</a>
         </div>
         

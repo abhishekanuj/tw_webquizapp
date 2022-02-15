@@ -8,6 +8,7 @@
     
 }
 
+
 a{
     text-decoration: none;
     color: #fff;
@@ -35,7 +36,7 @@ button:hover{
 }
 
 .options{
-    background-color: seagreen;
+    background-color: #1d77d1;
     padding: 8px;
     border-radius: 10px;
     color: #fff;
@@ -60,7 +61,7 @@ body > main{
 .main-content{
     display: block;
     position: absolute;
-    width: 600px;
+    width: 50vw;
     margin: 0 auto;
     top: 50%;
     left:50%;
@@ -72,11 +73,10 @@ body > main{
     color: #fff;
 }
 
-#play-again{
+#play-again,#highscore-table{
   
-    border: 1px solid lightgray;
-    padding: 5px;
-    border-radius: 5px;
+    border: 0.1rem solid lightgray;
+    padding: 0.4rem;
     margin: 0 auto;
 }
 .inputBox{
@@ -86,4 +86,41 @@ body > main{
   height: 2rem;
 
   
+}
+
+#submit-button{
+    background-color:  #1d77d1;
+    color: white;
+    text-decoration: none;
+}
+
+#quiz-headings{
+    text-align: center;
+    border: 0.2rem white dashed;
+    padding: 0.2rem;
+}
+
+#highscore-table{
+    margin-bottom: 0.5rem;
+}
+
+#highscore-table:hover,#play-again:hover{
+    background-color: lightcoral;
+}
+
+
+#name{
+    margin-right: 1rem;
+    width: 20vw;
+    height: 3vh;
+}
+
+#submit-button{
+    height: 3.5vh;
+    width: 10vw;
+    background-color: lightcoral;
+}
+
+#anchor:hover{
+    text-decoration: solid underline;
 }
