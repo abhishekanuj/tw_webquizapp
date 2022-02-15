@@ -1,26 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+:root{
+    background-color: rgb(24,24,24);
+}
+*{
+    font-family: 'Major Mono Display';
+    
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    
+}
+.options:hover{
+    transform: scale(1.05);
+}
+button{
+    background-color: #fff;
+}
+button:hover{
+    transform: scale(1.1);
+    
+}
 .header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: seagreen;
+    
     margin: 0px;
     padding: 10px;
     color: #fff;
 }
 
+.options{
+    background-color: seagreen;
+    padding: 8px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
 
 body > main{
+  
     border-radius: 10px;
-    color: white;
-    background: red;
+    
    
 }
 #playground{
     display: none;
 }
-#Highscores{
+
+#game-end{
     display: none;
+    text-align: center;
 }
 .main-content{
     display: block;
@@ -34,4 +69,21 @@ body > main{
     border-radius: 10px;
     box-shadow: 10px 5px lightgray;
     padding: 20px;
+    color: #fff;
+}
+
+#play-again{
+  
+    border: 1px solid lightgray;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+.inputBox{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+
+  
 }

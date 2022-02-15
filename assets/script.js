@@ -12,8 +12,8 @@ let countTime=0;
 
 let playerName="";
 let intro = document.getElementById("intro");
+let game_end=document.getElementById("game-end");
 
-let highscoreTable=document.getElementById("Highscores");
 
 
 
@@ -31,8 +31,7 @@ function startQuiz(){
 
   intro.style.display="none";
   mainContent.style.display="block";
-  highscoreTable.style.display="none";
-
+  game_end.style.display="none";
   time.innerHTML="Time: "+timeINterval; 
   timestart();
   quest.innerHTML=questions[questionIndex].questionText;
@@ -64,11 +63,6 @@ function validate(name){
   }
 }
 
-
-
-
-
-
 let check=false;
 
 
@@ -77,7 +71,7 @@ let check=false;
 //to get which option was clicked
 Array.from(option).forEach(function(element) {
   element.addEventListener('click', (e)=>{
-   check = checkAnswer(e.target.innerText);
+   check = checkAnswer(e.target.innerText,e.target.id);
     console.log(e.target.innerText);
   });
 });
@@ -86,13 +80,15 @@ Array.from(option).forEach(function(element) {
 
 
 //function to chech the answer
-function checkAnswer(user_answer){
+function checkAnswer(user_answer,id){
   if(questions[questionIndex].answer===user_answer ){
     //console.log("success");
     points+=10;
-
+    document.getElementById(id).style="background-color:green";
   }
-
+  else{
+    document.getElementById(id).style="background-color:red";
+  }
   return true;
 
 };
@@ -103,6 +99,15 @@ function checkAnswer(user_answer){
 
 //function to change the question
 function changeQuestion(){
+  
+  var elems = document.querySelectorAll(".options");
+  console.log(elems);
+  var index = 0, length = elems.length;
+  for ( ; index < length; index++) {
+      elems[index].style="color:white";
+      
+  }
+  
   console.log(questionIndex);
   if(questionIndex===questions.length-1){
     
@@ -137,8 +142,8 @@ function timestart(timeINterval=11){
     time.innerHTML = "Time: "+timeINterval;
     if(countTime==6){
     
-     //changeQuestion();
-     highscores();
+     
+     gameEnd();
      clearInterval(x);
     }
     else if(timeINterval<=0 || check===true){
@@ -155,83 +160,19 @@ function timestart(timeINterval=11){
 
 
 
-//function for score-table
-let flag=false;
-function highscores(){
-  let anchor=document.getElementById("anchor");
-/*   anchor.innerHTML="previous";
-  anchor.addEventListener('click',()=>{
-    intro.style.display="block";
-    //anchor.href="index.html";
-   highscoreTable.style.display="none"; 
-    //intro.style.display="block"; 
-  }); */
- 
-  //time.innerHTML.style.display="block";
-  highscoreTable.style.display="block"; 
+//function for game end
+function gameEnd(){
   intro.style.display="none";
   mainContent.style.display="none";
-  
-  highscoreTable.style.innerHTML="hello";
-
-  console.log("ended");
- 
+  game_end.style.display="block";
   localStorage.setItem(playerName,points);
-  let sortedScore=allStorage();
-  //console.log(sortedScore);
-  if(flag==false){
-  sortedScore.forEach((element)=>{
-    document.getElementById("highscoreTable").innerHTML+=`<tr><td>${element.name} </td> <td>${element.score}</td> </tr>`
-  });
-  flag=true;
-}
-    //document.getElementById("score").innerHTML="game over";
+
+  document.querySelector(".header").style.display="none";
+  document.getElementById("your-score").innerHTML+=points;
 }
 
 
 
-
-//function to store names and score
-
-function allStorage() {
-
-    var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-    console.log(keys);
-    while ( i-- ) {
-        values.push({name:keys[i] ,score :localStorage.getItem(keys[i])});
-    }
-
-    //console.log(values);
-  
-  
-    function compare( a, b ) {
-      if ( a.score > b.score ){
-        return -1;
-      }
-      if ( a.score < b.score ){
-        return 1;
-      }
-      return 0;
-    }
-    
-    values.sort( compare );
-    return values;
-}
-
-
-function reset(){
-  //let anchor=document.getElementById("restart");
-    //  anchor.innerHTML="previous";
-    //anchor.addEventListener('click',()=>{
-      intro.style.display="block";
-      //anchor.href="index.html";
-     highscoreTable.style.display="none"; 
-      //intro.style.display="block"; 
-   // }); 
-   
-}
 
 
 

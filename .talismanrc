@@ -3,3 +3,7 @@ fileignoreconfig:
   checksum: 1036c30305f2ef407f1a6b413840103f579ef6249d9550581c420d7fc0e978cf
 version: ""
 
+fileignoreconfig:
+- filename: highscoresScript.js
+  checksum: 384d7a19b677c28f2fbb4fe9a615b2cc34d40bc3e202522559d13e498490da55
+version: ""
